@@ -1,0 +1,74 @@
+@use '../mixins/breakpoint' as *;
+
+.as-card-list {
+    &__header {
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        gap: 4rem;
+        margin-bottom: 1rem;
+        width: 100%;
+
+        @include screen(desktop) {
+            flex-direction: row;
+        }
+    }
+
+    &__container {
+        align-items: center;
+        background: var(--as-color-white);
+        border-radius: 8px;
+        flex-direction: column;
+        display: flex;
+        height: auto;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 8px 12px;
+        width: 100%;
+
+        &:nth-child(odd) {
+            background: var(--as-color-soft);
+        }
+
+        @include screen(desktop) {
+            flex-direction: row;
+            gap: 4rem;
+            height: 98px;
+        }
+    }
+
+    &__content {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        &--left {
+            align-items: center;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            width: 400px;
+        }
+
+        &--md {
+            width: 100%;
+
+            @include screen(desktop) {
+                width: 200px;
+            }
+        }
+
+        &--sm {
+            width: 100%;
+
+            @include screen(desktop) {
+                width: 100px;
+            }
+        }
+
+        &--button {
+            display: unset;
+        }
+    }
+}

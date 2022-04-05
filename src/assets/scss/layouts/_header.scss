@@ -1,0 +1,15 @@
+.as-header {
+    background: var(--as-gradient-blue);
+    min-height: 310px;
+    width: 100%;
+
+    &__container {
+        margin-bottom: 1.5rem;
+        width: 70%;
+    }
+
+    &__text {
+        @extend %as-text--24-bold !optional;
+        color: var(--as-color-white);
+    }
+}

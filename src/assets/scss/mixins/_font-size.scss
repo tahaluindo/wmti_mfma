@@ -1,0 +1,63 @@
+@use '../helpers/color' as *;
+
+$fst-regular: "NunitoSansRegular",
+sans-serif;
+$fst-semibold: "NunitoSansSemibold",
+sans-serif;
+$fst-bold: "NunitoSansBold",
+sans-serif;
+
+// Read :: (type, font-style, mobile-font-size, desktop-font-size) ::
+$font-size: ("56", $fst-bold, 2.5rem, 3.5rem),
+("40", $fst-bold, 2rem, 2.5rem),
+
+("32-bold", $fst-bold, 1.5rem, 2rem),
+("28-bold", $fst-bold, 1.5rem, 1.75rem),
+("24-bold", $fst-bold, 1.125rem, 1.5rem),
+("20-bold", $fst-bold, 1rem, 1.25rem),
+("18-bold", $fst-bold, 1rem, 1.125rem),
+("16-bold", $fst-bold, 1rem, 1rem),
+("14-bold", $fst-bold, 0.875rem, 0.875rem),
+
+("32-semibold", $fst-semibold, 1.5rem, 2rem),
+("28-semibold", $fst-semibold, 1.5rem, 1.75rem),
+("24-semibold", $fst-semibold, 1.25rem, 1.5rem),
+("20-semibold", $fst-semibold, 1rem, 1.25rem),
+("18-semibold", $fst-semibold, 1rem, 1.125rem),
+("16-semibold", $fst-semibold, 1rem, 1rem),
+("14-semibold", $fst-semibold, 0.875rem, 0.875rem),
+("12-semibold", $fst-semibold, 0.75rem, 0.75rem),
+
+("32", $fst-regular, 1.5rem, 2rem),
+("28", $fst-regular, 1.5rem, 1.75rem),
+("24", $fst-regular, 1.25rem, 1.5rem),
+("20", $fst-regular, 1rem, 1.25rem),
+("18", $fst-regular, 1rem, 1.125rem),
+("16", $fst-regular, 1rem, 1rem),
+("14", $fst-regular, 0.875rem, 0.875rem),
+("12", $fst-regular, 0.75rem, 0.75rem),
+
+("link", $fst-regular, 0.875rem, 1rem),
+("link-bold", $fst-semibold, 0.875rem, 1rem);
+
+@each $fs in $font-size {
+
+  %as-text--#{nth($fs,1)} {
+    font-family: nth($fs, 2);
+    font-size: clamp(nth($fs, 3), 3vw, nth($fs, 4));
+    line-height: calc(2px + 2ex + 6px);
+    letter-spacing: 0.005rem;
+
+    @if nth($fs, 1)==('h1, h2, h3, h4, h5, h6, h7, h8') {
+      letter-spacing: normal;
+    }
+
+    @if nth($fs, 1)=='link' {
+      color: $as-color-blue;
+
+      &:hover {
+        color: darken($as-color-blue, 10%);
+      }
+    }
+  }
+}

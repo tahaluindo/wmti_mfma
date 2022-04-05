@@ -1,0 +1,46 @@
+@use '../mixins/breakpoint' as *;
+
+// Button Solid Helper
+%as-btn-helper {
+  @extend %as-text--16-semibold !optional;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  border: none;
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  display: block;
+  height: 3rem;
+  outline: none;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;;
+  width: 100%;
+  white-space: nowrap;
+
+  @include screen(desktop) {
+    display: inline-block;
+  }
+}
+
+// Button Outline Helper
+%as-btn-outline-helper {
+  @extend %as-text--16-semibold !optional;
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  border-radius: 1.875rem;
+  box-sizing: border-box;
+  display: block;
+  height: 3rem;
+  outline: none;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;;
+  width: 100%;
+  white-space: nowrap;
+
+  @include screen(desktop) {
+    display: inline-block;
+  }
+}

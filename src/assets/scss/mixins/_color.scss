@@ -1,0 +1,86 @@
+@use '../helpers/color' as *;
+@use '../helpers/shade' as *;
+@use '../helpers/gradient' as *;
+@use '../helpers/shadow' as *;
+
+$color-palletes: (blue: (dark: $as-color-blue-dark,
+    light: $as-color-blue-light,
+  ),
+  orange: (dark: $as-color-orange-dark,
+    light: $as-color-orange-light,
+  ),
+  red: (dark: $as-color-red-dark,
+    light: $as-color-red-light,
+  ),
+  green: (dark: $as-color-green-dark,
+    light: $as-color-green-light,
+  ),
+  yellow: (dark: $as-color-yellow-dark,
+    light: $as-color-yellow-light,
+  ),
+  shade: (80: $as-shade-80,
+    64: $as-shade-64,
+    32: $as-shade-32,
+    18: $as-shade-18,
+    12: $as-shade-12,
+  ),
+  gradient: (blue: $as-grad-blue,
+    blue-dark: $as-grad-blue-dark,
+    red: $as-grad-red,
+    green: $as-grad-green,
+    green-dark: $as-grad-green-dark,
+    orange: $as-grad-orange,
+    purple: $as-grad-purple,
+    pink: $as-grad-pink,
+  ),
+);
+
+@each $color,
+$shades in $color-palletes {
+
+  @each $shade,
+  $value in $shades {
+
+    %as-color--#{"" + $color}-#{"" + $shade},
+    .as-color--#{"" + $color}-#{"" + $shade},
+    .as-text--#{"" + $color}-#{"" + $shade} {
+      color: #{$value};
+    }
+
+    %as-background--#{"" + $color}-#{"" + $shade},
+    .as-background--#{"" + $color}-#{"" + $shade} {
+      background: #{$value};
+    }
+  }
+}
+
+$colors-single: ("white", $as-color-white),
+("soft", $as-color-soft),
+("divider", $as-color-divider),
+("border", $as-color-border),
+("backdrop", $as-color-backdrop),
+("gray", $as-color-gray),
+("gray-soft", $as-color-soft),
+("black", $as-color-black),
+("primary", $as-color-primary),
+("secondary", $as-color-secondary),
+("secondary-2", $as-color-secondary-2),
+("disable", $as-color-disable),
+("blue", $as-color-blue),
+("orange", $as-color-orange),
+("red", $as-color-red),
+("green", $as-color-green),
+("yellow", $as-color-yellow);
+
+@each $clr-single in $colors-single {
+
+  %as-color--#{nth($clr-single,1)},
+  .as-color--#{nth($clr-single,1)} {
+    color: #{nth($clr-single, 2)};
+  }
+
+  %as-background--#{nth($clr-single,1)},
+  .as-background--#{nth($clr-single,1)} {
+    background: #{nth($clr-single, 2)};
+  }
+}

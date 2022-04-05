@@ -1,0 +1,15 @@
+$width-sizes: 1500;
+
+@mixin width-classes {
+  @for $i from 1 through $width-sizes {
+    $aswidth: $i * 1px;
+
+    .as-width--#{$i} {
+      width: $aswidth;
+    }
+  }
+}
+
+@include width-classes;
+
+// ex: .as-width--25

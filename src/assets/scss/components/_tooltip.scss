@@ -1,0 +1,125 @@
+@use '../mixins/breakpoint'as *;
+@use '../mixins/font-size'as *;
+@use '../helpers/shadow'as *;
+
+.as-tooltip {
+  cursor: auto;
+  display: inline-block;
+  left: 3px;
+  position: relative;
+  top: 3px;
+
+  &:hover {
+    .as-tooltip__info {
+      visibility: visible;
+    }
+  }
+
+  &__info {
+    @extend %as-text--12 !optional;
+    background: var(--as-color-black);
+    border-radius: 12px;
+    box-shadow: var(--as-shadow-1);
+    color: var(--as-color-white);
+    cursor: auto;
+    display: none;
+    margin-top: 8px;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    text-align: left;
+    visibility: hidden;
+    word-wrap: break-word;
+    width: auto;
+    z-index: 1;
+
+    @include screen(desktop) {
+      display: inline-block;
+    }
+
+    >a {
+      color: var(--as-color-blue);
+      font-weight: 700;
+      text-decoration: underline;
+
+      &:hover {
+        color: var(--as-color-blue-dark);
+      }
+    }
+
+    &--sm {
+      text-align: center;
+      width: 160px;
+      z-index: 2;
+    }
+
+    &--md {
+      width: 300px;
+    }
+
+    &--bottom {
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+
+      &::after {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid var(--as-color-dark);
+        content: "";
+        display: block;
+        left: 50%;
+        margin-left: -12px;
+        position: absolute;
+        top: -9px;
+      }
+    }
+
+    &--top {
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &::after {
+        border: 5px solid transparent;
+        border-top-color: var(--as-color-white);
+        content: "";
+        left: 50%;
+        position: absolute;
+        top: 100%;
+        transform: translateX(-50%);
+      }
+    }
+
+    &--left {
+      left: -20.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+        border: 10px solid transparent;
+        border-left-color: var(--as-color-white);
+        content: "";
+        left: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &--right {
+      left: calc(100% + 0.75rem);
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+        border: 10px solid transparent;
+        border-right-color: var(--as-color-white);
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

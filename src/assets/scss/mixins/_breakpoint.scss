@@ -1,0 +1,85 @@
+@mixin screen($breakpoint) {
+  // X-Small devices (portrait phones, less than 576px)
+  @if $breakpoint==mobileSmall {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  }
+
+  // Small devices (landscape phones, 576px and up)
+  @if $breakpoint==mobile {
+    @media (min-width: 576px) {
+      @content;
+    }
+  }
+
+  // Medium devices ipad
+  @if $breakpoint==ipadPortrait {
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 768px) and (orientation: portrait) {
+      @content;
+    }
+  }
+
+  // Medium devices ipad landscap
+  @if $breakpoint==ipad {
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  // Medium devices ipad Pro portrait
+  @if $breakpoint==ipadProPortrait {
+    @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (orientation: portrait) {
+      @content;
+    }
+  }
+
+  // Medium devices ipad Pro
+  @if $breakpoint==ipadPro {
+    @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+      @content;
+    }
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @if $breakpoint==tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+
+  // Large devices (desktops, 992px and up)
+  @if $breakpoint==desktop {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  // Large devices (desktops, 992px and up) max
+  @if $breakpoint==desktopMax {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+
+  // X-Large devices (large desktops, 1200px and up)
+  @if $breakpoint==desktopLarge {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+
+  // XX-Large devices (larger desktops, 1400px and up)
+  @if $breakpoint==desktopExtra {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+
+  // XXX-Large devices (extra larger desktops, 1920px and up)
+  @if $breakpoint==desktopExtraLarge {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+}

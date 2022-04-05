@@ -1,0 +1,33 @@
+$space-sizes: 100;
+
+@mixin margin-classes {
+  @for $i from 1 through $space-sizes {
+     $margin: $i * 1px;
+    .as-m--#{$i}  {margin: $margin;}
+    .as-ml--#{$i} {margin-left: $margin;}
+    .as-mr--#{$i} {margin-right: $margin;}
+    .as-mt--#{$i} {margin-top: $margin;}
+    .as-mb--#{$i} {margin-bottom: $margin;}
+    .as-mx--#{$i} {margin-left: $margin; margin-right: $margin;}
+    .as-my--#{$i} {margin-top: $margin; margin-bottom: $margin;}
+  }
+}
+
+@include margin-classes;
+
+@mixin padding-classes {
+  @for $i from 1 through $space-sizes {
+    $padding: $i * 1px;
+    .as-p--#{$i} {padding: $padding;}
+    .as-pl--#{$i} {padding-left: $padding;}
+    .as-pr--#{$i} {padding-right: $padding;}
+    .as-pt--#{$i} {padding-top: $padding;}
+    .as-pb--#{$i} {padding-bottom: $padding;}
+    .as-px--#{$i} {padding-left: $padding; padding-right: $padding;}
+    .as-py--#{$i} {padding-top: $padding; padding-bottom: $padding;}
+  }
+}
+
+@include padding-classes;
+
+// ex: as-pt--16;

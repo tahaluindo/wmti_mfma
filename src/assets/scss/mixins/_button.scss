@@ -1,0 +1,103 @@
+@use '../helpers/color' as *;
+@use '../helpers/shadow' as *;
+@use '../helpers/button' as *;
+@use '../mixins/font-size' as *;
+
+// Button Variants
+$button-array: (dark $as-color-black $as-color-white $as-shadow-black-1 $as-shadow-black-2),
+(success $as-color-green $as-color-white $as-shadow-green-1 $as-shadow-green-2),
+(danger $as-color-red $as-color-white $as-shadow-red-1 $as-shadow-red-2),
+(primary $as-color-orange $as-color-white $as-shadow-orange-1 $as-shadow-orange-2),
+(secondary $as-color-blue $as-color-white $as-shadow-blue-1 $as-shadow-blue-2);
+
+@each $button in $button-array {
+  // Button Solid
+  .as-btn--#{nth($button, 1)} {
+    @extend %as-btn-helper !optional;
+    background: #{nth($button, 2)};
+    border: 1px solid transparent;
+    box-shadow: #{nth($button, 4)};
+    color: #{nth($button, 3)};
+
+    &:hover {
+      background: darken(nth(nth($button, 2), 1), 5%);
+      color: #{nth($button, 3)};
+    }
+
+    &:focus,
+    &:active {
+      background: darken(nth(nth($button, 2), 1), 10%);
+      border: 1px solid var(--as-color-white);
+      box-shadow: #{nth($button, 5)};
+    }
+  }
+
+  // Button Outline
+  .as-btn-outline--#{nth($button, 1)} {
+    @extend %as-btn-outline-helper !optional;
+    background: transparent;
+    border: solid 1px #{nth($button, 2)};
+    color: #{nth($button, 2)};
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      color: #{nth($button, 2)};
+    }
+
+    &:active {
+      box-shadow: #{nth($button, 4)};
+      color: #{nth($button, 2)};
+    }
+  }
+}
+
+// Button Link
+.as-btn--link {
+  @extend %as-btn-helper !optional;
+  background: transparent;
+  border: none;
+  border-radius: 2rem;
+  color: var(--as-color-blue);
+
+  &:hover {
+    background: var(--as-color-gray);
+    color: var(--as-color-blue);
+  }
+
+  &:focus {
+    background: var(--as-color-gray-dark);
+    color: var(--as-color-blue);
+  }
+
+  &:active {
+    background: transparent;
+    border: 1px solid var(--as-color-gray-dark);
+    color: var(--as-color-blue);
+  }
+}
+
+.as-btn {
+  // Button Size
+  &--sm {
+    font-size: clamp(0.75rem, 3vw, 0.875rem);
+    padding: 0.725rem 1.75rem;
+  }
+
+  &--md {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    padding: 0.75rem 1.625rem;
+  }
+
+  &--lg {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    padding: 0.875rem 3rem;
+  }
+
+  // Button State
+  &--disabled {
+    color: var(--as-color-disable);
+    cursor: pointer;
+    pointer-events: none;
+  }
+}

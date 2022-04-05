@@ -1,0 +1,10 @@
+$text-position: 
+("start", start),
+("center", center),
+("end", end);
+
+@each $textpos in $text-position {
+  .as-text--#{nth($textpos,1)} {
+    text-align: nth($textpos, 2);
+  }
+}

@@ -1,0 +1,31 @@
+@use '../mixins/breakpoint' as *;
+
+.as-card-popup {
+    background: var(--as-color-white);
+    border-radius: 1rem;
+    box-shadow: var(--as-shadow-1);
+
+    &__text {
+        @extend %as-text--16 !optional;
+
+        &--xs {
+            @extend %as-text--12 !optional;
+        }
+
+        &--sm {
+            @extend %as-text--14 !optional;
+        }
+
+        &--md {
+            @extend %as-text--18 !optional;
+        }
+
+        &--lg {
+            @extend %as-text--20 !optional;
+        }
+
+        &--xl {
+            @extend %as-text--24 !optional;
+        }
+    }
+}

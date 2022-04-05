@@ -1,0 +1,15 @@
+$sizes: 1500;
+
+@mixin height-classes {
+  @for $i from 1 through $sizes {
+    $asheight: $i * 1px;
+
+    .as-height--#{$i} {
+      height: $asheight;
+    }
+  }
+}
+
+@include height-classes;
+
+// ex: .as-height-25

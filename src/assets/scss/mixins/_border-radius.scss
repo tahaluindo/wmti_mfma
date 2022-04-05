@@ -1,0 +1,24 @@
+$border-sizes: 50;
+
+@mixin borad-classes {
+  @for $i from 1 through $border-sizes {
+    $borad: $i * 1px;
+
+    .as-border-radius--#{$i} {
+      border-radius: $borad;
+    }
+  }
+}
+
+@include borad-classes;
+
+// ex: .as-border-radius-16
+
+@mixin border-radius($top-left:10px, $top-right:null, $bottom-right:null, $bottom-left:null) {
+  -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+  -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+  -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
+  border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+// ex: @include border-radius(1rem);

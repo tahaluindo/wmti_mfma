@@ -1,0 +1,49 @@
+
+@use '../mixins/font-size';
+
+.as-label {
+    @extend %as-text--12-semibold !optional;
+    border-radius: 4px;
+    line-height: normal;
+    margin: 0;
+    padding: 4px 12px;
+    text-align: center;
+
+    &--black {
+        background: var(--as-shade-80);
+        color: var(--as-color-white);
+    }
+
+    &--blue {
+        background: var(--as-color-blue-light);
+        color: var(--as-color-blue-dark);
+    }
+
+    &--orange {
+        background: var(--as-coloror-ange-light);
+        color: var(--as-color-orange-dark);
+    }
+
+    &--yellow {
+        background: var(--as-color-yellow-light);
+        color: var(--as-color-yellow-dark);
+    }
+
+    &--green {
+        background: var(--as-color-green-light);
+        color: var(--as-color-green-dark);
+    }
+
+    &--red {
+        background: var(--as-color-red-light);
+        color: var(--as-color-red-dark);
+    }
+
+    &--rounded {
+        border-radius: 1rem;
+    }
+
+    &--md {
+        @extend %as-text--14-semibold !optional;
+    }
+}

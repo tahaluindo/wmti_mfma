@@ -1,0 +1,45 @@
+@use '../mixins/breakpoint' as *;
+@use '../mixins/border-radius' as *;
+
+.as-card-thumb {
+    background: var(--as-color-white);
+    border-radius: 8px;
+    height: auto;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    @include screen(desktop) {
+        margin-bottom: 0;
+    }
+
+    &__image {
+        @include border-radius(8px, 8px, 0, 0);
+        height: 180px;
+        object-fit: fill;
+        width: 100%;
+    }
+
+    &__header {
+        background: var(--as-color-gray);
+        position: relative;
+
+        &--label {
+            bottom: 0;
+            margin: 12px;
+            position: absolute;
+        }
+    }
+
+    &__body {
+        @include border-radius(0, 0, 8px, 8px);
+        border: 1px solid var(--as-color-divider);
+        border-top: none;
+        padding: 1.25rem;
+
+        &:hover {
+            background: var(--as-color-soft);
+            border: 1px solid var(--as-color-blue);
+            border-top: none;
+        }
+    }
+}
